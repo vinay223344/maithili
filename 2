@@ -1,0 +1,100 @@
+#include<stdio.h>
+void pattern(){
+int l,i,j;
+printf("enter the no of lines the pattern should have");
+scanf("%d",&l);
+int n=65;
+for(i=1;i<=l;i++){
+	n=65;
+	for(j=1;j<=i;j++){
+		printf("%c",n);
+		if(j!=i)
+			printf("*");
+		n++;
+	}printf("\n");
+}
+}
+void kp(){
+	int n,a=65,i,j,p;
+	printf("enter no of lines");
+	scanf("%d",&n);
+	p=n;
+	for (i=1;i<=n/2;i++){
+		for (j=i;j<=(n/2)+1;j++){
+			printf("%c ",a);
+		}
+	printf("\n");
+	a++;
+	p--;
+	}
+	printf("%c\n",a);
+	p--;
+	for (i=n/2;i>=1;i--){
+		if (p!=0){
+			a--;
+		for (j=i;j<=n/2+1;j++){
+				printf("%c ",a);
+			}
+		p--;
+		printf("\n");
+		}
+		else break;
+	}
+}
+
+//--------------------problem 6 ---------------------------
+//Write a program to print numbers between 1 to 500 that are divisible by 7 using goto.
+void divisible_goto()
+{
+	int n,x=7;
+	printf("enter the number till which the divisibility of 7 need to be verified");
+	scanf("%d",&n);
+	div:
+	printf("%d\n",x);
+	x=x+7;
+	if(x<=n)
+		goto div;
+}
+//-----------------problem 7 -------------
+/*Write a program to calculate the sum and average of 10 positive numbers using continue for
+skipping invalid input.*/
+void sum_and_average()
+{
+	int n,x,s=0;
+	printf("enter the number of inputs you are going to provide for the operations sum and average");
+	scanf("%d",&n);
+	int p=n;
+	while(n>0){
+		printf("enter the %d number ",p-n+1);
+		scanf("%d",&x);
+		if(x<0){
+			printf("invalid input not considered enter positive numbers only\n");
+			continue;
+		}
+		s=s+x;
+		n--;
+	}
+	printf("the sum  and average of given %d valid inputs is %d , %d ",n,s,s/n);
+}
+int main()
+{
+	printf("------------assignmment -4-----------\n");
+	printf("enter which program you want to execute\n0.exit\n1.pattern\n2.k-pattern\n3.divisible_by_7\n4.sum_and_average\n");
+	int ch;
+	scanf("%d",&ch);
+	switch(ch){
+	case 0: printf("exiting assignment-4");
+			return 0;
+			break;
+	case 1: pattern();
+			break;
+	case 2: kp();
+			break;
+	case 3 : divisible_goto();
+			break;
+	case 4: sum_and_average();
+			break;
+	}
+	return 0;
+}
+
